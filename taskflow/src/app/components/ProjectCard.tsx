@@ -7,7 +7,9 @@ type Project = {
   startDate: Date;
   endDate: Date;
   _count?: {
-    tasks: number;
+    todo: number;
+    inProgress: number;
+    done: number;
   };
 };
 
@@ -27,8 +29,10 @@ export default function ProjectCard({ project }: { project: Project }) {
           <span>{new Date(project.endDate).toLocaleDateString("fr-CA")}</span>
         </div>
 
-        <div className="text-sm text-zinc-600">
-          {project._count?.tasks ?? 0} tâche{(project._count?.tasks ?? 0) !== 1 ? "s" : ""}
+        <div className="flex gap-3 text-xs font-medium">
+          <span className="text-zinc-500">À faire : {project._count?.todo ?? 0}</span>
+          <span className="text-blue-500">En cours : {project._count?.inProgress ?? 0}</span>
+          <span className="text-green-600">Terminé : {project._count?.done ?? 0}</span>
         </div>
       </div>
     </Link>
