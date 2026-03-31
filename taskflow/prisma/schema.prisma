@@ -15,25 +15,25 @@ datasource db {
 
 
 model User {
-	id					String @id @default(cuid())
-	clerkId			String @unique
-	email				String @unique
+	id					String			@id @default(cuid())
+	clerkId			String			@unique
+	email				String			@unique
 	name				String?
-	role				Role @default(MEMBER)
-	createdAt		DateTime @default(now())
+	role				Role			@default(MEMBER)
+	createdAt		DateTime		@default(now())
 	projects			Project[]
-	tasksCreated	Task[] @relation("TaskCreator")
-	tasksAssigned	Task[] @relation("TaskAssignee")
+	tasksCreated	Task[]			@relation("TaskCreator")
+	tasksAssigned	Task[]			@relation("TaskAssignee")
 }
 
 model Project {
-	id					String @id @default(cuid ())
+	id					String			@id @default(cuid ())
 	name				String
 	description		String?
 	startDate		DateTime
 	endDate			DateTime
-	createdAt		DateTime @default(now())
-	updatedAt		DateTime @updatedAt
+	createdAt		DateTime		@default(now())
+	updatedAt		DateTime		@updatedAt
 	
 	ownerId			String
 	owner				User @relation(fields: [ownerId], references: [id])
@@ -42,22 +42,22 @@ model Project {
 }
 
 model Task {
-	id					String @id @default(cuid())
+	id					String			@id @default(cuid())
 	title				String
 	description		String?
-	priority			Priority @default(MEDIUM)
-	status				TaskStatus @default(TODO)
-	createdAt		DateTime @default(now())
-	updatedAt		DateTime @updatedAt
+	priority			Priority		@default(MEDIUM)
+	status				TaskStatus	@default(TODO)
+	createdAt		DateTime		@default(now())
+	updatedAt		DateTime		@updatedAt
 	
 	projectId		String
-	project			Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+	project			Project		@relation(fields: [projectId], references: [id], onDelete: Cascade)
 	
 	creatorId		String
-	creator			User @relation("TaskCreator", fields: [creatorId], references: [id])
+	creator			User			@relation("TaskCreator", fields: [creatorId], references: [id])
 	
 	assigneeId		String?
-	assignee			User? @relation("TaskAssignee", fields: [assigneeId], references: [id])
+	assignee			User?			@relation("TaskAssignee", fields: [assigneeId], references: [id])
 }
 
 enum Role {
