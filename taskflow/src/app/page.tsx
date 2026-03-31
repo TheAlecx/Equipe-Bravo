@@ -7,7 +7,7 @@ const mockProjects = [
     description: "Refonte du dashboard client",
     startDate: new Date("2026-03-01"),
     endDate: new Date("2026-04-30"),
-    _count: { tasks: 5 },
+    _count: { todo: 2, inProgress: 2, done: 1 },
   },
   {
     id: "2",
@@ -15,7 +15,7 @@ const mockProjects = [
     description: "Migration vers Next.js 14",
     startDate: new Date("2026-03-15"),
     endDate: new Date("2026-05-15"),
-    _count: { tasks: 3 },
+    _count: { todo: 1, inProgress: 1, done: 1 },
   },
 ];
 
