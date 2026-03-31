@@ -1,3 +1,4 @@
+
 /node_modules
 /taskflow/node_modules
 /taskflow/.next
@@ -5,3 +6,5 @@
 /.env.*
 **/.env
 **/.env.*
+/nbproject/private/
+/taskflow/nbproject/private/
