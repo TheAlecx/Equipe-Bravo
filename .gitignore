@@ -1,0 +1,7 @@
+/node_modules
+/taskflow/node_modules
+/taskflow/.next
+/.env
+/.env.*
+**/.env
+**/.env.*
